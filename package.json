@@ -35,8 +35,9 @@
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   },
-  "lint-staged": {
-    "*.{js,jsx}": "lint",
-    "*.{js,jsx,css,md}": "prettier --write"
+  "engines": {
+    "node": ">=20",
+    "npm": ">=10",
+    "yarn": "unsupported"
   }
 }
