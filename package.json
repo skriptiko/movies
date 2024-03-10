@@ -11,14 +11,16 @@
     "format": "prettier \"**/*.{js,jsx,ts,tsx,scss,md}\" --write --loglevel warn",
     "lint": "next lint --no-cache",
     "lint:eslint": "next lint --cache-location node_modules/.cache/.eslintcache",
+    "typecheck": "tsc --project tsconfig.json --noEmit --noUnusedLocals",
     "prepare": "husky",
     "postinstall": "npm run husky:add",
-    "husky:add":  "echo 'npx lint-staged' > .husky/pre-commit"
+    "husky:add": "echo 'npx lint-staged' > .husky/pre-commit"
   },
   "dependencies": {
     "next": "14.1.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-query": "^3.39.3"
   },
   "devDependencies": {
     "@types/node": "^20",
