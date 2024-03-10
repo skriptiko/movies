@@ -9,8 +9,11 @@
     "fix": "run-s fix:* && npm run format",
     "fix:eslint": "npm run lint:eslint -- --fix",
     "format": "prettier \"**/*.{js,jsx,ts,tsx,scss,md}\" --write --loglevel warn",
-    "lint": "next lint",
-    "lint:eslint": "next lint --cache-location node_modules/.cache/.eslintcache"
+    "lint": "next lint --no-cache",
+    "lint:eslint": "next lint --cache-location node_modules/.cache/.eslintcache",
+    "prepare": "husky",
+    "postinstall": "npm run husky:add",
+    "husky:add":  "echo 'npx lint-staged' > .husky/pre-commit"
   },
   "dependencies": {
     "next": "14.1.0",
@@ -25,9 +28,15 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.0",
     "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
     "postcss": "^8",
     "prettier": "3.2.5",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "lint",
+    "*.{js,jsx,css,md}": "prettier --write"
   }
 }
